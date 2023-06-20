@@ -606,17 +606,15 @@ async def OwnerStart(event):
         await sython1.send_message(event.chat_id, "تم الانتهاء من التجميع | SY")
         
 @sython1.on(events.NewMessage(outgoing=False, pattern=r'^.تفعيل (.*) (.*)'))
-async def activate_bot(event):
-    potuser = event.pattern_match.group(1)
-    ids = event.pattern_match.group(2)
+async def OwnerStart(event):
+    bots = event.pattern_match.group(1) 
+    ids = event.pattern_match.group(2) 
     sender = await event.get_sender()
-    if sender.id == ownerhson_id:
-        # إرسال رسالة `/start` إلى البوت
-        await sython1.send_message(potuser, f'/start {ids}')
-        await asyncio.sleep(2)
-        # الحصول على آخر رسالتين تلقاهما البوت وإرسالها للمستخدم الأصلي
-        async for message in sython1.iter_messages(potuser, limit=2):
-            await message.forward_to(sender)
+    if sender.id == ownerhson_id :
+     send = await sython1.send_message(bots,f'/start {ids}')
+     sleep(2)
+    msg = await sython1.get_messages(bots, limit=2)
+    await msg[1].forward_to(ownerhson_id)
 
 @sython1.on(events.NewMessage(outgoing=False, pattern=r'^/pt1 (.*)'))
 async def OwnerStart(event):
