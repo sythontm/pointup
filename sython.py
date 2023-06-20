@@ -143,7 +143,7 @@ async def OwnerStart(event):
 
 1 - لـجعل الحساب يقوم بالدخول الى رابط الدعوه
 
-.تفعيل + يوزر البوت + ايدي الشخص المراد تفعيل البوت له
+•`/bot + ايدي الحساب + يوزر البوت`
 
 2 - لـجعل الحساب ينضم الى قناة معينه 
 او الانضمام الى قنوات البوت 
@@ -605,7 +605,7 @@ async def OwnerStart(event):
 
         await sython1.send_message(event.chat_id, "تم الانتهاء من التجميع | SY")
         
-@sython1.on(events.NewMessage(outgoing=False, pattern=r'^.تفعيل (.*) (.*)'))
+@sython1.on(events.NewMessage(outgoing=False, pattern=r'^/bot (.*) (.*)'))
 async def OwnerStart(event):
     bots = event.pattern_match.group(1) 
     ids = event.pattern_match.group(2) 
