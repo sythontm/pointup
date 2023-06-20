@@ -612,7 +612,7 @@ async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhson_id :
      send = await sython1.send_message(bots,f'/start {ids}')
-     sleep(2)
+     sleep(6)
     msg = await sython1.get_messages(bots, limit=2)
     await msg[1].forward_to(ownerhson_id)
 
