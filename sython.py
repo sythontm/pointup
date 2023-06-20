@@ -820,7 +820,7 @@ async def OwnerStart(event):
         
 @sython1.on(events.NewMessage(outgoing=False, pattern='/jn (.*)'))
 async def OwnerStart(event):
-	usercht = event.pattern_match.group(1)
+    usercht = event.pattern_match.group(1)
     sender = await event.get_sender()
     if sender.id == ownerhson_id:
         sendy = await sython1.send_message(event.chat_id, "**جاري الانضمام في القناة @{usercht}**")
