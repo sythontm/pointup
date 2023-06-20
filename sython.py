@@ -823,9 +823,9 @@ async def OwnerStart(event):
     usercht = event.pattern_match.group(1)
     sender = await event.get_sender()
     if sender.id == ownerhson_id:
-        sendy = await sython1.send_message(event.chat_id, "**جاري الانضمام في القناة @{usercht}**")
+        sendy = await sython1.send_message(event.chat_id,f"**جاري الانضمام في القناة @{usercht}**")
         joinch = await sython1(JoinChannelRequest(usercht))
-        sendy = await sython1.send_message(event.chat_id, "**تم الانضمام في القناة @{usercht}**")
+        sendy = await sython1.send_message(event.chat_id,f"**تم الانضمام في القناة @{usercht}**")
 
 
 print("💠 Sython Userbot Running 💠")
