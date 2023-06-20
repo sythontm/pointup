@@ -561,7 +561,7 @@ async def _(event):
 @sython1.on(events.NewMessage(outgoing=False, pattern='^/point (.*)'))
 async def OwnerStart(event):
 	pot = event.pattern_match.group(1) 
-    sender = await event.get_sender()
+        sender = await event.get_sender()
     if sender.id == ownerhson_id:
         await event.reply("جاري تجميع النقاط")
         await event.edit("جاري تجميع النقاط")
