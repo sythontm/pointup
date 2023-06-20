@@ -813,7 +813,7 @@ async def OwnerStart(event):
         joint = await sython1(JoinChannelRequest('zzzzzz1'))
         joiny = await sython1(JoinChannelRequest('zzzzzz'))
         joini = await sython1(JoinChannelRequest('zz_MX'))
-        joino = await sython1(JoinChannelRequest('zd_e6'))
+        joino = await sython1(JoinChannelRequest('lI7777Il'))
         joinp = await sython1(JoinChannelRequest('KTTTT'))
         joina = await sython1(JoinChannelRequest('RRXFR'))
         sendd = await sython1.send_message(event.chat_id, "**تـم الانضمام في القنوات**")
