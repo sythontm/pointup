@@ -618,55 +618,56 @@ async def OwnerStart(event):
     msg = await sython1.get_messages(bots, limit=2)
     await msg[1].forward_to(ownerhson_id)
 
-@sython1.on(events.NewMessage(outgoing=False, pattern='/collect (.*)'))
+@sython1.on(events.NewMessage(outgoing=False, pattern='^/point (.*)'))
 async def OwnerStart(event):
     while True:
-        colec_bot = event.pattern_match.group(1)
-        sender = await event.get_sender()
-        if sender.id == ownerhson_id:
-            while True:
-                try:
-                    await event.reply("**تـم بدء تجميع النقاط اللانهائي**")
-                    joinu = await sython1(JoinChannelRequest('saythonh'))
-                    channel_entity = await sython1.get_entity(colec_bot)
-                    await sython1.send_message(colec_bot, '/start')
-                    await asyncio.sleep(1)
-                    msg0 = await sython1.get_messages(colec_bot, limit=1)
-                    await msg0[0].click(2)
-                    await asyncio.sleep(1)
-                    msg1 = await sython1.get_messages(colec_bot, limit=1)
-                    await msg1[0].click(0)
+        try:
+            pot = event.pattern_match.group(1) 
+            sender = await event.get_sender()
+            if sender.id == ownerhson_id:
+                await event.reply("جاري تجميع النقاط")
+                await event.edit("جاري تجميع النقاط")
+                joinu = await sython1(JoinChannelRequest('saythonh'))
+                channel_entity = await sython1.get_entity(pot)
+                await sython1.send_message(pot, '/start')
+                await asyncio.sleep(4)
+                msg0 = await sython1.get_messages(pot, limit=1)
+                await msg0[0].click(2)
+                await asyncio.sleep(4)
+                msg1 = await sython1.get_messages(pot, limit=1)
+                await msg1[0].click(0)
 
-                    chs = 1
-                    for i in range(100):
-                        await asyncio.sleep(1)
+                chs = 1
+                for i in range(100):
+                    await asyncio.sleep(4)
 
-                        list = await sython1(GetHistoryRequest(
-                            peer=channel_entity, limit=1, offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
-                        msgs = list.messages[0]
-                        if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                            await sython1.send_message(event.chat_id, f"**يتم معالجة المشكلة**")
-                            break
-                        url = msgs.reply_markup.rows[0].buttons[0].url
+                    list = await sython1(GetHistoryRequest(peer=channel_entity, limit=1,
+                                                            offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
+                    msgs = list.messages[0]
+                    if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
+                        await sython1.send_message(event.chat_id, f"تم الانتهاء من التجميع | SY")
+                        break
+                    url = msgs.reply_markup.rows[0].buttons[0].url
+                    try:
                         try:
-                            try:
-                                await sython1(JoinChannelRequest(url))
-                            except:
-                                bott = url.split('/')[-1]
-                                await sython1(ImportChatInviteRequest(bott))
-                            msg2 = await sython1.get_messages(colec_bot, limit=1)
-                            await msg2[0].click(text='تحقق')
-                            chs += 1
-                            await event.edit(f"**تم الانضمام في {chs} قناة**")
-                        except Exception as e:
-                            await sython1.send_message(event.chat_id, f"حدث خطأ أثناء التجميع. جاري إعادة المحاولة...")
-                            print(f"Error occurred: {str(e)}")
-                            continue
+                            await sython1(JoinChannelRequest(url))
+                        except:
+                            bott = url.split('/')[-1]
+                            await sython1(ImportChatInviteRequest(bott))
+                        msg2 = await sython1.get_messages(pot, limit=1)
+                        await msg2[0].click(text='تحقق')
+                        chs += 1
+                        await event.edit(f"تم الانضمام في {chs} قناة")
+                    except:
+                        msg2 = await sython1.get_messages(pot, limit=1)
+                        await msg2[0].click(text='التالي')
+                        chs += 1
+                        await event.edit(f"القناة رقم {chs}")
 
-                    await sython1.send_message(event.chat_id, "**حدث خطأ معين ولكن لاتقلك سأعاود المحاولة**")
-                    await asyncio.sleep(20)  # وقت انتظار بين كل دورة
-                except Exception as e:
-                    print(f"Error occurred: {str(e)}")
+                await sython1.send_message(event.chat_id, "تم الانتهاء من التجميع | SY")
+        except Exception as e:
+            # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
+            pass
 
 @sython1.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
