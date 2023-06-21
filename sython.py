@@ -637,13 +637,13 @@ async def OwnerStart(event):
                 await asyncio.sleep(4)
                 msg0 = await sython1.get_messages(pot, limit=1)
                 await msg0[0].click(2)
-                await asyncio.sleep(3)
+                await asyncio.sleep(4)
                 msg1 = await sython1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
                 chs = 1
                 for i in range(100):
-                    await asyncio.sleep(3)
+                    await asyncio.sleep(4)
 
                     list = await sython1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
@@ -667,7 +667,7 @@ async def OwnerStart(event):
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.edit(f"القناة رقم {chs}")
-                        await asyncio.sleep(300)
+                        await asyncio.sleep(60)
 
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لاتقلق سوف اعالج المشكلة واستمر ")
         except Exception as e:
