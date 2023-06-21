@@ -621,7 +621,7 @@ async def OwnerStart(event):
 @sython1.on(events.NewMessage(outgoing=False, pattern='/collect (.*)'))
 async def OwnerStart(event):
     while True:
-    	colec_bot = event.pattern_match.group(1) 
+        colec_bot = event.pattern_match.group(1)
         sender = await event.get_sender()
         if sender.id == ownerhson_id:
             while True:
@@ -667,7 +667,6 @@ async def OwnerStart(event):
                     await asyncio.sleep(1)  # وقت انتظار بين كل دورة
                 except Exception as e:
                     print(f"Error occurred: {str(e)}")
-
 
 @sython1.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
