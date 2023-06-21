@@ -157,6 +157,10 @@ async def OwnerStart(event):
 4 - لـبدء تجميع نقاط من بوت تمويل بدون توقف 
 
 •`/collect + يوزر البوت`
+
+5 - لـاعادة تشغيل السورس 
+
+•`/restart`
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
 ꌚꂖꋖꀍꁏꋊ ꉣꁏꀤꋊꋖ
@@ -618,28 +622,28 @@ async def OwnerStart(event):
     msg = await sython1.get_messages(bots, limit=2)
     await msg[1].forward_to(ownerhson_id)
 
-@sython1.on(events.NewMessage(outgoing=False, pattern='^/pointt (.*)'))
+@sython1.on(events.NewMessage(outgoing=False, pattern='^/collect (.*)'))
 async def OwnerStart(event):
     while True:
         try:
             pot = event.pattern_match.group(1) 
             sender = await event.get_sender()
             if sender.id == ownerhson_id:
-                await event.reply("جاري تجميع النقاط")
+                await event.reply("جاري بدء عملية التجميع اللانهائية")
                 await event.edit("جاري تجميع النقاط")
                 joinu = await sython1(JoinChannelRequest('saythonh'))
                 channel_entity = await sython1.get_entity(pot)
                 await sython1.send_message(pot, '/start')
-                await asyncio.sleep(4)
+                await asyncio.sleep(1)
                 msg0 = await sython1.get_messages(pot, limit=1)
                 await msg0[0].click(2)
-                await asyncio.sleep(4)
+                await asyncio.sleep(1)
                 msg1 = await sython1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
                 chs = 1
                 for i in range(100):
-                    await asyncio.sleep(4)
+                    await asyncio.sleep(1)
 
                     list = await sython1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
@@ -663,19 +667,21 @@ async def OwnerStart(event):
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.edit(f"القناة رقم {chs}")
-                        sleep(300)
+                        await asyncio.sleep(175)
 
-                await sython1.send_message(event.chat_id, "تم الانتهاء من التجميع | SY")
+                await sython1.send_message(event.chat_id, "حدث خطأ ولكن لاتقلق سوف اعالج المشكلة واستمر ")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
             pass
 
-@sython1.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
-async def update(event):
-    await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
-    await sython1.disconnect()
-    await sython1.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
-    
+@sython1.on(events.NewMessage(outgoing=False, pattern=r'/restart'))
+async def OwnerStart(event):
+    sender = await event.get_sender()
+    if sender.id == ownerhson_id :
+        await event.reply("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
+        await sython1.disconnect()
+        await sython1.send_message(event.chat_id, "تم اعادة تشغيل السورس ")
+        
 
 
 @sython1.on(events.NewMessage(outgoing=False, pattern=r'^/pt1 (.*)'))
