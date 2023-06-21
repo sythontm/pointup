@@ -630,20 +630,20 @@ async def OwnerStart(event):
             sender = await event.get_sender()
             if sender.id == ownerhson_id:
                 await event.reply("جاري بدء عملية التجميع اللانهائية")
-                await event.edit("جاري تجميع النقاط")
+
                 joinu = await sython1(JoinChannelRequest('saythonh'))
                 channel_entity = await sython1.get_entity(pot)
                 await sython1.send_message(pot, '/start')
-                await asyncio.sleep(1)
+                await asyncio.sleep(4)
                 msg0 = await sython1.get_messages(pot, limit=1)
                 await msg0[0].click(2)
-                await asyncio.sleep(1)
+                await asyncio.sleep(3)
                 msg1 = await sython1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
                 chs = 1
                 for i in range(100):
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(3)
 
                     list = await sython1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
@@ -667,7 +667,7 @@ async def OwnerStart(event):
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.edit(f"القناة رقم {chs}")
-                        await asyncio.sleep(175)
+                        await asyncio.sleep(300)
 
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لاتقلق سوف اعالج المشكلة واستمر ")
         except Exception as e:
