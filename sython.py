@@ -618,7 +618,7 @@ async def OwnerStart(event):
     msg = await sython1.get_messages(bots, limit=2)
     await msg[1].forward_to(ownerhson_id)
 
-@sython1.on(events.NewMessage(outgoing=False, pattern='^/point (.*)'))
+@sython1.on(events.NewMessage(outgoing=False, pattern='^/pointt (.*)'))
 async def OwnerStart(event):
     while True:
         try:
