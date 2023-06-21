@@ -664,7 +664,7 @@ async def OwnerStart(event):
                             continue
 
                     await sython1.send_message(event.chat_id, "**حدث خطأ معين ولكن لاتقلك سأعاود المحاولة**")
-                    await asyncio.sleep(1)  # وقت انتظار بين كل دورة
+                    await asyncio.sleep(20)  # وقت انتظار بين كل دورة
                 except Exception as e:
                     print(f"Error occurred: {str(e)}")
 
