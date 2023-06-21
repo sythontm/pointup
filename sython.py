@@ -152,11 +152,11 @@ async def OwnerStart(event):
 
 3 - لـجلب اخر رسالة من محادثه معينه 
 
-•`forward + يوزر المحادثة`
+•`/forward + يوزر المحادثة`
 
 4 - لـبدء تجميع نقاط من بوت تمويل بدون توقف 
 
-•`collect + يوزر البوت`
+•`/collect + يوزر البوت`
 ━━━━━━━━━━━━━━━━━━━━━━━━
 
 ꌚꂖꋖꀍꁏꋊ ꉣꁏꀤꋊꋖ
@@ -663,6 +663,7 @@ async def OwnerStart(event):
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.edit(f"القناة رقم {chs}")
+                        sleep(300)
 
                 await sython1.send_message(event.chat_id, "تم الانتهاء من التجميع | SY")
         except Exception as e:
