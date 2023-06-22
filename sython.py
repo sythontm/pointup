@@ -624,11 +624,12 @@ async def OwnerStart(event):
 
 import asyncio
 
-@sython1.on(events.NewMessage(outgoing=False, pattern='^/collect (.*)'))
+@sython1.on(events.NewMessage(outgoing=False, pattern='^/collect (.*) (.*)'))
 async def OwnerStart(event):
     while True:
         try:
             pot = event.pattern_match.group(1) 
+            numw = int(event.pattern_match.group(2))
             sender = await event.get_sender()
             if sender.id == ownerhson_id:
                 await event.reply("جاري بدء عملية التجميع اللانهائية")
@@ -662,18 +663,18 @@ async def OwnerStart(event):
                             await sython1(ImportChatInviteRequest(bott))
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='تحقق')
-                        chs += 1
-                        await event.reply(f"تم الانضمام في {chs} قناة")
+                        chs += 10
+                        await event.reply(f" عدد النقاط التي قمت بتجميعها عندما ارسلت الامر {chs}")
                     except:
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
-                        chs += 1
-                        await event.reply(f"القناة رقم {chs}")
+                        chs += 10
+                        await event.edit(f"عدد النقاط منذ بدأ التجميع {chs}")
                         
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لا تقلق سوف أعالج المشكلة واستمر ")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
-            await asyncio.sleep(600)
+            await asyncio.sleep(numw)
 
 
 
