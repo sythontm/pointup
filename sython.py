@@ -634,16 +634,16 @@ async def OwnerStart(event):
                 joinu = await sython1(JoinChannelRequest('saythonh'))
                 channel_entity = await sython1.get_entity(pot)
                 await sython1.send_message(pot, '/start')
-                await asyncio.sleep(4)
+                await asyncio.sleep(2)
                 msg0 = await sython1.get_messages(pot, limit=1)
                 await msg0[0].click(2)
-                await asyncio.sleep(4)
+                await asyncio.sleep(2)
                 msg1 = await sython1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
                 chs = 1
                 for i in range(100):
-                    await asyncio.sleep(4)
+                    await asyncio.sleep(2)
 
                     list = await sython1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
