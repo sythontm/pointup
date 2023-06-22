@@ -669,14 +669,11 @@ async def OwnerStart(event):
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.reply(f"القناة رقم {chs}")
-                        await asyncio.sleep(300)  # انتظر خمس دقائق (300 ثانية)
-
-                    await asyncio.sleep(300)  # انتظر خمس دقائق بين كل دورة
-
+                        
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لا تقلق سوف أعالج المشكلة واستمر ")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
-            await asyncio.sleep(300)
+            await asyncio.sleep(600)
 
 
 
