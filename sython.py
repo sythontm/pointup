@@ -676,7 +676,7 @@ async def OwnerStart(event):
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لا تقلق سوف أعالج المشكلة واستمر ")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
-            pass
+            await asyncio.sleep(300)
 
 
 
