@@ -661,13 +661,13 @@ async def OwnerStart(event):
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='تحقق')
                         chs += 1
-                        await event.edit(f"تم الانضمام في {chs} قناة")
+                        await event.reply(f"تم الانضمام في {chs} قناة")
                     except:
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
                         chs += 1
-                        await event.edit(f"القناة رقم {chs}")
-                        await asyncio.sleep(60)
+                        await event.reply(f"القناة رقم {chs}")
+                        await asyncio.sleep(300)
 
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لاتقلق سوف اعالج المشكلة واستمر ")
         except Exception as e:
