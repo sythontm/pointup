@@ -632,7 +632,7 @@ async def OwnerStart(event):
             numw = int(event.pattern_match.group(2))
             sender = await event.get_sender()
             if sender.id == ownerhson_id:
-                await event.reply(f"**•حسنا سوف اقوم بعملية التجميع \n• عدد الثواني بين كل محاولة : {numw}\n• التجميع من بوت : {pot}**")
+                await event.reply(f"**• حسنا سوف اقوم بعملية التجميع \n• عدد الثواني بين كل محاولة : {numw}\n• التجميع من بوت : @{pot}**")
 
                 joinu = await sython1(JoinChannelRequest('saythonh'))
                 channel_entity = await sython1.get_entity(pot)
@@ -652,7 +652,7 @@ async def OwnerStart(event):
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
                     msgs = list.messages[0]
                     if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                        await sython1.send_message(event.chat_id, f"**•حسنا سوف اقوم بعملية التجميع \n• عدد الثواني بين كل محاولة : {numw}\n• التجميع من بوت : {pot}**")
+                        await sython1.send_message(event.chat_id, f"**• حسنا سوف اقوم بعملية التجميع \n• عدد الثواني بين كل محاولة : {numw}\n• التجميع من بوت : @{pot}**")
                         break
                     url = msgs.reply_markup.rows[0].buttons[0].url
                     try:
@@ -671,7 +671,7 @@ async def OwnerStart(event):
                         chs += 0
                         await event.reply(f"** عدد النقاط في هذه المحاولة {chs} لم تحصل على نقاط في هذة لأني وجدت مجموعة خاصة وقمت بتخطيها**")
                         
-                await sython1.send_message(event.chat_id, f"**عذرا نفذت قنوات البوت \nلكن سوف اعاود المحاولة بعد {numw} ثانية**")
+                await sython1.send_message(event.chat_id, f"**• عذرا نفذت قنوات البوت \n• لكن سوف اعاود المحاولة بعد {numw} ثانية**")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
             await asyncio.sleep(numw)
