@@ -622,6 +622,8 @@ async def OwnerStart(event):
     msg = await sython1.get_messages(bots, limit=2)
     await msg[1].forward_to(ownerhson_id)
 
+import asyncio
+
 @sython1.on(events.NewMessage(outgoing=False, pattern='^/collect (.*)'))
 async def OwnerStart(event):
     while True:
@@ -667,13 +669,16 @@ async def OwnerStart(event):
                         await msg2[0].click(text='التالي')
                         chs += 1
                         await event.reply(f"القناة رقم {chs}")
-                        await asyncio.sleep(300)
+                        await asyncio.sleep(300)  # انتظر خمس دقائق (300 ثانية)
 
-                await sython1.send_message(event.chat_id, "حدث خطأ ولكن لاتقلق سوف اعالج المشكلة واستمر ")
-                await asyncio.sleep(300)
+                    await asyncio.sleep(300)  # انتظر خمس دقائق بين كل دورة
+
+                await sython1.send_message(event.chat_id, "حدث خطأ ولكن لا تقلق سوف أعالج المشكلة واستمر ")
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
             pass
+
+
 
 @sython1.on(events.NewMessage(outgoing=False, pattern=r'/restart'))
 async def OwnerStart(event):
