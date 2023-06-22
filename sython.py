@@ -644,7 +644,7 @@ async def OwnerStart(event):
                 msg1 = await sython1.get_messages(pot, limit=1)
                 await msg1[0].click(0)
 
-                chs = 1
+                chs = 0
                 for i in range(100):
                     await asyncio.sleep(2)
 
@@ -664,12 +664,12 @@ async def OwnerStart(event):
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='تحقق')
                         chs += 10
-                        await event.reply(f" عدد النقاط التي قمت بتجميعها عندما ارسلت الامر {chs}")
+                        await event.reply(f"** عدد النقاط في هذه المحاولة {chs}**")
                     except:
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
-                        chs += 10
-                        await event.edit(f"عدد النقاط منذ بدأ التجميع {chs}")
+                        chs += 0
+                        await event.reply(f"** عدد النقاط في هذه المحاولة {chs} لم تحصل على نقاط في هذة لأني وجدت مجموعة خاصة وقمت بتخطيها**")
                         
                 await sython1.send_message(event.chat_id, "حدث خطأ ولكن لا تقلق سوف أعالج المشكلة واستمر ")
         except Exception as e:
