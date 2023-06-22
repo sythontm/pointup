@@ -632,8 +632,7 @@ async def OwnerStart(event):
             numw = int(event.pattern_match.group(2))
             sender = await event.get_sender()
             if sender.id == ownerhson_id:
-                await event.reply(f"**حسنا سوف اقوم بعملية التجميع \nعدد الثواني بين كل محاولة {numw}\nالبوت المطلوب تجميع نقاطه {pot}
-                **")
+                await event.reply(f"**حسنا سوف اقوم بعملية التجميع \nعدد الثواني بين كل محاولة {numw}\nالبوت المطلوب تجميع نقاطه {pot}**")
 
                 joinu = await sython1(JoinChannelRequest('saythonh'))
                 channel_entity = await sython1.get_entity(pot)
@@ -653,8 +652,7 @@ async def OwnerStart(event):
                                                             offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
                     msgs = list.messages[0]
                     if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                        await sython1.send_message(event.chat_id, f"**حسنا سوف اقوم بعملية التجميع \nعدد الثواني بين كل محاولة {numw}\nالبوت المطلوب تجميع نقاطه {pot}
-**")
+                        await sython1.send_message(event.chat_id, f"**حسنا سوف اقوم بعملية التجميع \nعدد الثواني بين كل محاولة {numw}\nالبوت المطلوب تجميع نقاطه {pot}**")
                         break
                     url = msgs.reply_markup.rows[0].buttons[0].url
                     try:
