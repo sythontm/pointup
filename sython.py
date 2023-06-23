@@ -986,7 +986,17 @@ async def OwnerStart(event):
     	await sython1.send_message(event.chat_id, f"**❈ حسناً سوف اقوم بتحويل اخر رسالة\n❈ من المستخدم {userbott}**")
         msg = await sython1.get_messages(userbott, limit=1)
         await msg[0].forward_to(ownerhson_id)
-        
+
+@sython1.on(events.NewMessage(outgoing=False, pattern=r'^/forward (.*)'))
+async def OwnerStart(event):
+    userbott = event.pattern_match.group(1)
+    sender = await event.get_sender()
+    if sender.id == ownerhson_id:
+        await sython1.send_message(event.chat_id, f"**❈ حسناً سوف اقوم بتحويل اخر رسالة\n❈ من المستخدم {userbott}**")
+        msgs = await sython1.get_messages(userbott, limit=1)
+        if msgs:
+            await msgs[0].forward_to(ownerhson_id)
+       
 @sython1.on(events.NewMessage(outgoing=False, pattern='/join'))
 async def OwnerStart(event):
     sender = await event.get_sender()
