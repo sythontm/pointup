@@ -569,7 +569,7 @@ async def OwnerStart(event):
     pot = event.pattern_match.group(1) 
     sender = await event.get_sender()
     if sender.id == ownerhson_id:
-        await event.reply("جاري تجميع النقاط")
+        await event.respond("جاري تجميع النقاط")
         await event.edit("جاري تجميع2")
         joinu = await sython1(JoinChannelRequest('saythonh'))
         channel_entity = await sython1.get_entity(pot)
