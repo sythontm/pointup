@@ -673,6 +673,7 @@ async def OwnerStart(event):
                         await event.reply(f"** عدد النقاط في هذه المحاولة {chs} لم تحصل على نقاط في هذة لأني وجدت مجموعة خاصة وقمت بتخطيها**")
                         
                 await sython1.send_message(event.chat_id, f"**• عذرا نفذت قنوات البوت \n• لكن سوف اعاود المحاولة بعد {numw} ثانية**")
+                await asyncio.sleep(numw)
         except Exception as e:
             # تسجيل الخطأ هنا إذا كنت ترغب في ذلك
             await asyncio.sleep(numw)
