@@ -779,9 +779,9 @@ async def OwnerStart(event):
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
                         chs += 0
-                        await event.reply(f"**✣ للأسف لم تحصل على نقاط في هذه المحاولة
+                        await event.reply(f"""**✣ للأسف لم تحصل على نقاط في هذه المحاولة
 ✣ لأنني وجدت قناة خاصة قمت بتخطيها
-✣ البوت التي حدث فيه الخطأ: {pot}**")
+✣ البوت التي حدث فيه الخطأ: {pot}**""")
                         
                 await sython1.send_message(event.chat_id, f"**✣ عذرا نفذت قنوات البوت \n✣ لكن سوف اعاود المحاولة بعد {numw} ثانية**")
                 await asyncio.sleep(numw)
