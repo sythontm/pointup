@@ -636,6 +636,7 @@ async def OwnerStart(event):
 
                 joinu = await sython1(JoinChannelRequest('saythonh'))
                 channel_entity = await sython1.get_entity(pot)
+                await sython1.send_message(pot, '**جاري بدأ عملية التجميع بواسطة سايثون**')
                 await sython1.send_message(pot, '/start')
                 await asyncio.sleep(2)
                 msg0 = await sython1.get_messages(pot, limit=1)
