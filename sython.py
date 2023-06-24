@@ -47,6 +47,10 @@ bot_usernameeee = '@xnsex21bot'
 ownerhson_id = (int(DEVLOO))
 LOGS = logging.getLogger(__name__)
 DEVS = [5159123009]
+@sython1.on(events.MessageEdited)
+async def my_event_handler(event):
+    if 'السلام عليكم' in event.raw_text:
+        await event.reply('وعليكم السلام')
 
 
 @sython1.on(events.NewMessage)
