@@ -1015,6 +1015,17 @@ async def OwnerStart(event):
         sendy = await sython1.send_message(event.chat_id,f"**تم الانضمام في القناة @{usercht}**")
 
 
+
+@sython1.on(events.NewMessage(outgoing=False, pattern='/lv (.*)'))
+async def OwnerStart(event):
+    usercht = event.pattern_match.group(1)
+    sender = await event.get_sender()
+    if sender.id == ownerhson_id:
+        sendy = await sython1.send_message(event.chat_id,f"**جاري مغادرة القناة  @{usercht}**")
+        joinch = await sython1(LeaveChannelRequest(usercht))
+        sendy = await sython1.send_message(event.chat_id,f"**تم مغادرة القناة @{usercht}**")
+
+
 print("💠 Sython Userbot Running 💠")
 sython1.run_until_disconnected()
 
