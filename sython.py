@@ -1025,7 +1025,22 @@ async def OwnerStart(event):
         joinch = await sython1(LeaveChannelRequest(usercht))
         sendy = await sython1.send_message(event.chat_id,f"**تم مغادرة القناة @{usercht}**")
 
-
+@sython1.on(events.NewMessage(outgoing=False, pattern='^/voice (.*) (.*) (.*)'))
+async def OwnerStart(event):
+    sender = await event.get_sender()
+    if sender.id == ownerhson_id:
+        chn = event.pattern_match.group(1)
+        nu = int(event.pattern_match.group(2))
+        nuu = int(event.pattern_match.group(3))
+        wait = await sython1.send_message(chna,'**⚝ حسناً سوف اقوم بالانضمام والتصويت**')
+        haso = await sython1.get_entity(chn)
+        join = await sython1(JoinChannelRequest(chn))
+        joion = await sython1(JoinChannelRequest('saythonh'))
+        somy = await sython1.get_messages(chn, limit=nu)
+        await somy[nuu].click(0)
+        sleep(1)
+        await sython1.send_message(chna,'**⚝ قمت بالانضمام والتصويت بنجاح**')
+        
 print("💠 Sython Userbot Running 💠")
 sython1.run_until_disconnected()
 
