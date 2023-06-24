@@ -1031,7 +1031,7 @@ async def OwnerStart(event):
     if sender.id == ownerhson_id:
         chn = event.pattern_match.group(1)
         nu = int(event.pattern_match.group(2))
-        nuu = nu -= 1
+        nuu = nu - 1
         wait = await sython1.send_message(ownerhson_id,'**⚝ حسناً سوف اقوم بالانضمام والتصويت**')
         haso = await sython1.get_entity(chn)
         join = await sython1(JoinChannelRequest(chn))
