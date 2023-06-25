@@ -457,7 +457,7 @@ async def start_handler(event):
     async for message in sython1.iter_messages(event.chat_id):
         if message.message and 't.me/+' in message.message:
             link = message.message.split(' ')[-1]
-            await sython1(Get(link))
+            await sython1(ImportChatInviteRequest(link))
             break
 @sython1.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
 async def _(event):
