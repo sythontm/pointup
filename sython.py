@@ -784,7 +784,7 @@ async def OwnerStart(event):
                             await sython1(JoinChannelRequest(url))
                         except:
                             syth = url.split('/')[-1]
-                            await sython1(ImportChatInviteRequest(syth))
+                            await sython1(Get(syth))
                         msg2 = await sython1.get_messages(pot, limit=1)
                         await msg2[0].click(text='التالي')
                         chs += 10
