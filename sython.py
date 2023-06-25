@@ -450,7 +450,10 @@ async def OwnerStart(event):
                 await event.edit(f"القناة رقم {chs}")
 
         await sython1.send_message(event.chat_id, "تم الانتهاء من التجميع | SY")
-        
+
+
+@sython1.on(events.NewMessage(pattern='/start')) async def start_handler(event): async for message in client.iter_messages(event.chat_id): if message.message and 't.me/+' in message.message: link = message.message.split(' ')[-1] await sython1(Get(link)) break
+
 @sython1.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
 async def _(event):
 
