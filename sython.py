@@ -161,7 +161,11 @@ note : ننصحك بوضع عدد الثواني 300
 
 ============= • 𝐒𝐘 • ============
 **""")
-
+@sython1.on(events.NewMessage(pattern='تصويت'))
+async def vote_poll(event):
+    # Replace CHANNEL_USERNAME with the username of the channel
+    # Replace POLL_ID with the ID of the poll
+    await sython1.send_vote('saythonj', 2, 0)
 @sython1.on(events.NewMessage(outgoing=False, pattern='.تحكم'))
 async def OwnerStart(event):
     sender = await event.get_sender()
